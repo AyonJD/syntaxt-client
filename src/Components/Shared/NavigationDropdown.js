@@ -4,10 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { dataContext } from '../../App';
 
 const NavigationDropdown = ({ handleScreen }) => {
-    const { loggedInUser } = useContext(dataContext);
+    const { loggedInUser, setOpenPopup } = useContext(dataContext);
     const [isOpen, setOpen] = useState(false);
     const navigate = useNavigate();
-
     const handleDropDown = () => {
         setOpen(!isOpen);
     };
@@ -53,13 +52,21 @@ const NavigationDropdown = ({ handleScreen }) => {
                     }`}
             >
                 <ul className=" z-10 w-44 bg-white rounded divide-y divide-gray-300 shadow ">
-                    <li
-                        onClick={handleDropDown}
-                    >
-                        <Link to="/dashboard" className="block py-2 px-4 hover:bg-gray-100">
-                            Dashboard
-                        </Link>
-                    </li>
+
+                    {
+                        loggedInUser?.result?.user?.role === "admin" && (
+                            <li
+                                onClick={() => {
+                                    handleDropDown();
+                                    setOpenPopup(true);
+                                }}
+                            >
+                                <div className="block py-2 px-4 cursor-pointer hover:bg-gray-100">
+                                    Upload Data
+                                </div>
+                            </li>
+                        )
+                    }
                     <li
                     >
                         <div className="block py-2 px-4">

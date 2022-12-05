@@ -3,6 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navigation from './Components/Shared/Navigation';
+import AdminUpload from './Pages/Admin/AdminUpload';
 import Login from './Pages/Auth/Login';
 import Signup from './Pages/Auth/Signup';
 import { BASE_URL } from './Utils/Urls';
@@ -10,6 +11,7 @@ import { BASE_URL } from './Utils/Urls';
 const dataContext = createContext();
 
 function App() {
+  const [openPopup, setOpenPopup] = useState(false);
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -48,6 +50,8 @@ function App() {
     userId,
     setUserId,
     loggedInUser,
+    openPopup,
+    setOpenPopup,
   }
 
   return (
@@ -58,6 +62,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
+        {
+          openPopup && <AdminUpload />
+        }
       </dataContext.Provider>
       <Toaster />
     </div>
