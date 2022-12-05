@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navigation from './Components/Shared/Navigation';
 import Login from './Pages/Auth/Login';
+import Signup from './Pages/Auth/Signup';
 import { BASE_URL } from './Utils/Urls';
 
 const dataContext = createContext();
@@ -55,6 +56,7 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </dataContext.Provider>
       <Toaster />
