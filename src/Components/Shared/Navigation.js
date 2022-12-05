@@ -80,7 +80,7 @@ function Navigation() {
 
         {!token && <button onClick={() => navigate('/login')} className="mr-4 text-white border-[#37BC96] border px-4 py-1 rounded-md bg-[#37BC96]">Login</button>}
 
-
+        {/* Hamburger menu */}
         <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
           <HamburgerButton.Lines />
         </HamburgerButton.Wrapper>

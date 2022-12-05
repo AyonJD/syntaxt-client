@@ -1,3 +1,15 @@
+.mid-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+@media only screen and (max-width: 990px) {
+  .mid-container {
+    padding: 1rem;
+  }
+}
+
 .link {
   text-decoration: none !important;
 }
@@ -50,4 +62,19 @@
     width: 90%;
   }
 
+}
+
+.image_hover img {
+  transition: all 0.5s ease;
+  transform: scale(1);
+  height: 350px;
+  object-fit: cover;
+}
+
+.image_hover:hover img {
+  transform: scale(1.3);
+}
+
+.hover_div {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
 }

@@ -6,6 +6,7 @@ import Navigation from './Components/Shared/Navigation';
 import AdminUpload from './Pages/Admin/AdminUpload';
 import Login from './Pages/Auth/Login';
 import Signup from './Pages/Auth/Signup';
+import ClientPage from './Pages/ClientPage/ClientPage';
 import { BASE_URL } from './Utils/Urls';
 
 const dataContext = createContext();
@@ -61,6 +62,7 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/client-page" element={<ClientPage />} />
         </Routes>
         {
           openPopup && <AdminUpload />
