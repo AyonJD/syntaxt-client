@@ -1,8 +1,10 @@
 import { createContext, useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navigation from './Components/Shared/Navigation';
+import Login from './Pages/Auth/Login';
+import { BASE_URL } from './Utils/Urls';
 
 const dataContext = createContext();
 
@@ -17,7 +19,7 @@ function App() {
    */
   const getLoggedInUser = async () => {
     try {
-      const url = `https://syntaxt-server.up.railway.app//api/v1/auth/user/${userId}`
+      const url = `${BASE_URL}/api/v1/auth/user/${userId}`
       const res = await fetch(url)
 
       const parseData = await res.json();
@@ -52,7 +54,7 @@ function App() {
       <dataContext.Provider value={dataObject}>
         <Navigation />
         <Routes>
-          
+          <Route path="/login" element={<Login />} />
         </Routes>
       </dataContext.Provider>
       <Toaster />

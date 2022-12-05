@@ -1,3 +1,22 @@
 .link {
     text-decoration: none !important;
 }
+
+/* Login screen */
+.login_wrapper {
+    background-image: url('./Asset/Login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    width: 98.7vw;
+    height: calc(100vh - 80px);
+  }
+  
+  .login_form_image {
+    background-image: url('./Asset/Login.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+  }
