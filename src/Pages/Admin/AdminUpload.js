@@ -73,7 +73,7 @@ const AdminUpload = ({ openPopup }) => {
                             <input type="file" className="form-control-file" id="image" {...register("image", { required: true })} />
                             {errors.image && <span className='text-danger'>This field is required</span>}
                         </div>
-                        <button type="submit" className="bg-[#37BC96] text-white font-semibold mt-5 px-7 rounded-md py-2">Post</button>
+                        <button type="submit" className="bg-[#37BC96] hover:bg-[#0e9e75]  text-white font-semibold mt-5 px-7 rounded-md py-2">Post</button>
 
                     </form>
                 </div>

@@ -7,91 +7,91 @@ import { dataContext } from "../../App";
 import NavigationDropdown from "./NavigationDropdown";
 
 function Navigation() {
-    /* Close the drawer when the user clicks outside of it */
-    const [openDrawer, toggleDrawer] = useState(false);
-    const drawerRef = useRef(null);
-    const navigate = useNavigate();
-    const { token, setToken } = useContext(dataContext);
+  /* Close the drawer when the user clicks outside of it */
+  const [openDrawer, toggleDrawer] = useState(false);
+  const drawerRef = useRef(null);
+  const navigate = useNavigate();
+  const { token, setToken } = useContext(dataContext);
 
-    useEffect(() => {
-        const closeDrawer = (event) => {
-            if (drawerRef.current && drawerRef.current.contains(event.target)) {
-                return;
-            }
-            toggleDrawer(false);
-        };
-
-        document.addEventListener("mousedown", closeDrawer);
-        return () => document.removeEventListener("mousedown", closeDrawer);
-    }, []);
-
-    const handleLogOut = () => {
-        setToken(null);
-        localStorage.removeItem("access_token");
+  useEffect(() => {
+    const closeDrawer = (event) => {
+      if (drawerRef.current && drawerRef.current.contains(event.target)) {
+        return;
+      }
+      toggleDrawer(false);
     };
 
-    return (
-        <Navbar.Wrapper className="">
-            <div className="flex justify-between items-center mt-[-10px]">
-                <Navbar.Logo>
-                    <Link className="link" to="/">
-                        <p className="logo">
-                            <span style={{ fontWeight: "bold" }}>
-                                 Syntax
-                            </span>
-                            <span
-                                style={{
-                                    fontStyle: "italic",
-                                    fontFamily: "PlayFair Display, sans-serif",
-                                    color: "#37BC96"
-                                }}
-                            >
-                                Solutions
-                            </span>
-                        </p>
-                    </Link>
-                </Navbar.Logo>
+    document.addEventListener("mousedown", closeDrawer);
+    return () => document.removeEventListener("mousedown", closeDrawer);
+  }, []);
 
-                <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
-                    {
-                        token && (
-                            <Navbar.Item>
-                                <NavigationDropdown handleScreen="exclude_sm_show" />
-                            </Navbar.Item>
-                        )
-                    }
+  const handleLogOut = () => {
+    setToken(null);
+    localStorage.removeItem("access_token");
+  };
 
-                    <Navbar.Item>
-                        <Link className="link font-semibold" to="/topup">
-                            Content Page
-                        </Link>
-                    </Navbar.Item>
-                    <Navbar.Item>
-                        <Link className="link font-semibold" to="/shop">
-                            Client Page
-                        </Link>
-                    </Navbar.Item>
-                </Navbar.Items>
-            </div>
+  return (
+    <Navbar.Wrapper className="">
+      <div className="flex justify-between items-center mt-[-10px]">
+        <Navbar.Logo>
+          <Link className="link" to="/">
+            <p className="logo">
+              <span style={{ fontWeight: "bold" }}>
+                Syntax
+              </span>
+              <span
+                style={{
+                  fontStyle: "italic",
+                  fontFamily: "PlayFair Display, sans-serif",
+                  color: "#37BC96"
+                }}
+              >
+                Solutions
+              </span>
+            </p>
+          </Link>
+        </Navbar.Logo>
 
-            <div className="flex items-center sm:items-start">
-                {/* Login Logout button */}
-                {token && <NavigationDropdown handleScreen="include_sm_show" />}
+        <Navbar.Items ref={drawerRef} openDrawer={openDrawer}>
+          {
+            token && (
+              <Navbar.Item>
+                <NavigationDropdown handleScreen="exclude_sm_show" />
+              </Navbar.Item>
+            )
+          }
 
-                {!token && <button onClick={() => navigate('/login')} className="mr-4 text-white border-[#37BC96] border px-4 py-1 rounded-md bg-[#37BC96]">Login</button>}
+          <Navbar.Item>
+            <Link className="link font-semibold" to="/content-page">
+              Content Page
+            </Link>
+          </Navbar.Item>
+          <Navbar.Item>
+            <Link className="link font-semibold" to="/client-page">
+              Client Page
+            </Link>
+          </Navbar.Item>
+        </Navbar.Items>
+      </div>
+
+      <div className="flex items-center sm:items-start">
+        {/* Login Logout button */}
+        {token && <NavigationDropdown handleScreen="include_sm_show" />}
+
+        {!token && <button onClick={() => navigate('/login')} className="mr-4 text-white border-[#37BC96] border px-4 py-1 rounded-md bg-[#37BC96]">Login</button>}
 
 
-                <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
-                    <HamburgerButton.Lines />
-                </HamburgerButton.Wrapper>
-            </div>
-        </Navbar.Wrapper>
-    );
+        <HamburgerButton.Wrapper onClick={() => toggleDrawer(true)}>
+          <HamburgerButton.Lines />
+        </HamburgerButton.Wrapper>
+      </div>
+    </Navbar.Wrapper>
+  );
 }
 
 //Styled Components
 const Navbar = {
-    Wrapper: styled.nav`
+  Wrapper: styled.nav`
     position: sticky;
     top: 0;
     z-index: 999;
@@ -118,7 +118,7 @@ const Navbar = {
     }
   `,
 
-    Logo: styled.h1`
+  Logo: styled.h1`
     font-size: 1.5rem;
     position: relative;
     top: 5px;
@@ -126,7 +126,7 @@ const Navbar = {
     color: black;
   `,
 
-    Items: styled.ul`
+  Items: styled.ul`
     display: flex;
     list-style: none;
 
@@ -145,11 +145,11 @@ const Navbar = {
       transition: 0.2s ease-out;
 
       transform: ${({ openDrawer }) =>
-            openDrawer ? `translateX(0)` : `translateX(100%)`};
+      openDrawer ? `translateX(0)` : `translateX(100%)`};
     }
   `,
 
-    Item: styled.li`
+  Item: styled.li`
     position: relative;
     top: 5px;
     padding: 0 1rem;
@@ -162,7 +162,7 @@ const Navbar = {
 };
 
 const HamburgerButton = {
-    Wrapper: styled.button`
+  Wrapper: styled.button`
     height: 3rem;
     width: 3rem;
     position: relative;
@@ -192,7 +192,7 @@ const HamburgerButton = {
     }
   `,
 
-    Lines: styled.div`
+  Lines: styled.div`
     top: 50%;
     margin-top: -0.125em;
 
