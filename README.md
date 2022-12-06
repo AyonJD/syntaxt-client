@@ -1,6 +1,7 @@
 
 # Syntax Solution
 ### Live Site Link : [Syntax Solution](https://syntax-solution-26bed.web.app/)
+### Server API Link : [Syntax Solution Server](https://syntaxt-server.up.railway.app)
 
 There are five individual part.
 * Login.
@@ -32,3 +33,15 @@ In this page Client and Admin both will see the Products added by an admin. Ever
 #### Admin part
 
 If an admin click on your user name at the right corner of Navigation bar, he will able to see a dropdown containing Upload Data part. After clicking the Upload Data section a popup will open for admin and he will be able to upload Image, Label and details into the database.
+
+
+## Technologies
+
+* React JS.
+* Tailwind CSS.
+* Styled Component.
+* Firebase.
+* Node JS.
+* Express JS.
+* MongoDB.
+* Mongoose.
