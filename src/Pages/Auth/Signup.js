@@ -63,7 +63,7 @@ const Signup = () => {
                         <p className='text-sm text-[#495055] mb-2'>User Name</p>
                         <div className="flex items-center relative">
                             <HiUser className='absolute text-xl text-[#495055] left-3' />
-                            <input type="text" placeholder='User Name' className='w-full focus:outline-none focus:border-[#0B5ED7] border border-slate-300 rounded-full p-2 pl-10'
+                            <input type="text" placeholder='User Name' className='w-full focus:outline-none focus:border-[#37BC96] border border-slate-300 rounded-full p-2 pl-10'
                                 {...register("userName", {
                                     required: true,
                                     minLength: {
@@ -80,7 +80,7 @@ const Signup = () => {
                         <p className='text-sm text-[#495055] mb-2'>Email Address</p>
                         <div className="flex items-center relative">
                             <IoIosMail className='absolute text-xl text-[#495055] left-3' />
-                            <input type="email" placeholder='Email Address' className='w-full focus:outline-none focus:border-[#0B5ED7] border border-slate-300 rounded-full p-2 pl-10'
+                            <input type="email" placeholder='Email Address' className='w-full focus:outline-none focus:border-[#37BC96] border border-slate-300 rounded-full p-2 pl-10'
                                 {...register("email", {
                                     required: 'Email is required',
                                     pattern: {
@@ -98,7 +98,7 @@ const Signup = () => {
                         <p className='text-sm text-[#495055] mb-2'>Enter Password</p>
                         <div className="flex items-center relative">
                             <BsFillLockFill className='absolute text-xl text-[#495055] left-3' />
-                            <input type="password" placeholder='Enter Password' className='w-full focus:outline-none focus:border-[#0B5ED7] border border-slate-300 rounded-full p-2 pl-10'
+                            <input type="password" placeholder='Enter Password' className='w-full focus:outline-none focus:border-[#37BC96] border border-slate-300 rounded-full p-2 pl-10'
                                 {...register('password', {
                                     required: 'Password is required',
                                     pattern: {
@@ -114,7 +114,7 @@ const Signup = () => {
                         <small className='text-[#FF4B2B] text-center pl-1 text-[12px]'>{errors?.password?.message}</small>
                         <p className=' text-[#000] text-sm font-semibold mt-4 cursor-pointer'>Already have an account? <span onClick={() => navigate('/login')} className="text-[#0B5ED7]"> Login</span></p>
 
-                        <input className='bg-[#3461ff] hover:bg-[#0B5ED7] transition-all delay-100 cursor-pointer mt-4 w-full rounded-full p-2 font-medium text-white' type="submit" value="Sign Up" />
+                        <input className='bg-[#37BC96] hover:bg-[#01996D] transition-all delay-100 cursor-pointer mt-4 w-full rounded-full p-2 font-medium text-white' type="submit" value="Sign Up" />
 
                     </form>
                 </div>

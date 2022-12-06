@@ -98,7 +98,7 @@ const Login = () => {
                         <p className='text-sm text-[#495055] mb-2'>Username or Email Address</p>
                         <div className="flex items-center relative">
                             <IoIosMail className='absolute text-xl text-[#495055] left-3' />
-                            <input type="text" placeholder='Username or Email Address' className='w-full focus:outline-none focus:border-[#0B5ED7] border border-slate-300 rounded-full p-2 pl-10'
+                            <input type="text" placeholder='Username or Email Address' className='w-full focus:outline-none focus:border-[#37BC96] border border-slate-300 rounded-full p-2 pl-10'
                                 {...register("user_or_email", {
                                     required: 'This field is required',
                                     minLength: {
@@ -116,7 +116,7 @@ const Login = () => {
                         <p className='text-sm text-[#495055] mb-2'>Enter Password</p>
                         <div className="flex items-center relative">
                             <BsFillLockFill className='absolute text-xl text-[#495055] left-3' />
-                            <input type="password" placeholder='Enter Password' className='w-full focus:outline-none focus:border-[#0B5ED7] border border-slate-300 rounded-full p-2 pl-10'
+                            <input type="password" placeholder='Enter Password' className='w-full focus:outline-none focus:border-[#37BC96] border border-slate-300 rounded-full p-2 pl-10'
                                 {...register('password', {
                                     required: 'Password is required',
                                     pattern: {
@@ -131,7 +131,7 @@ const Login = () => {
                         </div>
                         <small className='text-[#FF4B2B] text-center pl-1 text-[12px]'>{errors?.password?.message}</small>
 
-                        <input className='bg-[#3461ff] hover:bg-[#0B5ED7] transition-all delay-100 cursor-pointer mt-4 w-full rounded-full p-2 font-medium text-white' type="submit" value="Sign In" />
+                        <input className='bg-[#37BC96] hover:bg-[#01996D] transition-all delay-100 cursor-pointer mt-4 w-full rounded-full p-2 font-medium text-white' type="submit" value="Sign In" />
                         <div className='flex justify-between items-center'>
                             <p className=' text-[#000] text-sm font-semibold mt-4 cursor-pointer'>Don't have an account? <span onClick={() => navigate('/signup')} className="text-[#0B5ED7]"> Sign Up</span></p>
                             <p className=' text-[#0B5ED7] text-sm font-semibold mt-4 cursor-pointer'>Forgot password</p>
