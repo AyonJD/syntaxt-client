@@ -19,6 +19,10 @@ const ContentPage = () => {
             });
             const parseData = await response.json();
             toast.success(`User role updated to ${role}`);
+            setTimeout(() => {
+                window.location.reload();
+            }
+                , 1000);
         } catch (err) {
             console.error(err.message);
         }
@@ -82,10 +86,10 @@ const ContentPage = () => {
                                                             <td className="font-medium">{index + 1}</td>
                                                             <td className="font-medium">{user?.userName}</td>
                                                             <td className="font-medium">{user?.email}</td>
-                                                            <td className="font-medium">{(user?.role === 'admin' || userRole === 'admin') ? 'admin' : 'user'}</td>
+                                                            <td className="font-medium">{(user?.role === 'admin') ? 'admin' : 'user'}</td>
                                                             <td>
                                                                 {
-                                                                    user?.role === "admin" || userRole === 'admin' ? (
+                                                                    user?.role === "admin" ? (
                                                                         <button
                                                                             onClick={() => {
                                                                                 setUserRole("user");
