@@ -18,11 +18,9 @@ const ClientPage = () => {
         }
     }
 
-    console.log(productData);
-
     useEffect(() => {
         getProductData();
-    }, []);
+    }, [productData]);
 
     return (
         <div className='mid-container'>
@@ -31,7 +29,7 @@ const ClientPage = () => {
                 {
                     productData?.result?.map((product) => {
                         return (
-                            <div className='image_hover '>
+                            <div key={product?._id} className='image_hover '>
                                 <div className='overflow-hidden relative'>
                                     <img className='block w-full' src={product.image} alt="" />
                                     <div className='absolute bottom-[-270px] py-2 px-1 right-0 w-full h-full hover_div'>

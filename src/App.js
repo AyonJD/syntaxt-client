@@ -7,6 +7,7 @@ import AdminUpload from './Pages/Admin/AdminUpload';
 import Login from './Pages/Auth/Login';
 import Signup from './Pages/Auth/Signup';
 import ClientPage from './Pages/ClientPage/ClientPage';
+import ContentPage from './Pages/ContentPage/ContentPage';
 import { BASE_URL } from './Utils/Urls';
 
 const dataContext = createContext();
@@ -16,7 +17,16 @@ function App() {
   const [token, setToken] = useState(null);
   const [userId, setUserId] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState(null);
-  const [services, setServices] = useState([]);
+  const [allUser, setAllUser] = useState([]);
+
+  /**
+   * The above function is an async function that fetches all the users from the database.
+   */
+  const getAllUser = async () => {
+    const res = await fetch(`${BASE_URL}/api/v1/auth/user`);
+    const data = await res.json();
+    setAllUser(data);
+  };
 
   /**
    * It fetches the user's data from the server and sets the state of the logged in user
@@ -43,6 +53,11 @@ function App() {
     }
   }, [token, userId]);
 
+  /* Fetching all the users from the database. */
+  useEffect(() => {
+    getAllUser();
+  }, []);
+
 
   /* Creating an object that contains the token, setToken, userId, setUserId, and loggedInUser. */
   const dataObject = {
@@ -53,6 +68,7 @@ function App() {
     loggedInUser,
     openPopup,
     setOpenPopup,
+    allUser
   }
 
   return (
@@ -60,9 +76,11 @@ function App() {
       <dataContext.Provider value={dataObject}>
         <Navigation />
         <Routes>
+          <Route path="/" element={<ContentPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/client-page" element={<ClientPage />} />
+          <Route path="/content-page" element={<ContentPage />} />
         </Routes>
         {
           openPopup && <AdminUpload />

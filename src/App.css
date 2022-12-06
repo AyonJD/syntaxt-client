@@ -78,3 +78,20 @@
 .hover_div {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1));
 }
+
+/* Content page */
+.content_page_bg {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.3)), url('./Asset/banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: calc(100vh - 80px);
+}
+
+.height {
+  min-height: calc(100vh - 80px);
+}
+
+.table th:first-child {
+  position: static;
+}
