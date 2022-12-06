@@ -3,6 +3,10 @@
 ### Live Site Link : [Syntax Solution](https://syntax-solution-26bed.web.app/)
 ### Server API Link : [Syntax Solution Server](https://syntaxt-server.up.railway.app)
 
+#### Admin login credentials----
+* Admin User name = Admin
+* Admin Password = Admin1
+
 There are five individual part.
 * Login.
 * Sign Up.
